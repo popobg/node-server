@@ -71,8 +71,3 @@ const sortObjectByValue = (obj) => {
 };
 
 module.exports = { countWords, sortObjectByValue };
-
-console.log(countWords("la pomme est rouge et la banane est jaune"));
-console.log(countWords(""));
-console.log(countWords("la pomme est La Pomme"));
-console.log(countWords("La pomme, la pomme!"));
