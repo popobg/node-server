@@ -1,0 +1,298 @@
+<html><head><meta charset="utf-8"/><title>Test Report</title><style type="text/css">html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+body {
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+}
+#jesthtml-content {
+  margin: 0 auto;
+  max-width: 70rem;
+}
+header {
+  display: flex;
+  align-items: center;
+}
+#title {
+  margin: 0;
+  flex-grow: 1;
+}
+#logo {
+  height: 4rem;
+}
+#timestamp {
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/** SUMMARY */
+#summary {
+  color: #333;
+  margin: 2rem 0;
+  display: flex;
+  font-family: monospace;
+  font-size: 1rem;
+}
+#summary > div {
+  margin-right: 2rem;
+  background: #eee;
+  padding: 1rem;
+  min-width: 15rem;
+}
+#summary > div:last-child {
+  margin-right: 0;
+}
+@media only screen and (max-width: 720px) {
+  #summary {
+    flex-direction: column;
+  }
+  #summary > div {
+    margin-right: 0;
+    margin-top: 2rem;
+  }
+  #summary > div:first-child {
+    margin-top: 0;
+  }
+}
+
+.summary-total {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.summary-passed {
+  color: #4f8a10;
+  border-left: 0.4rem solid #4f8a10;
+  padding-left: 0.5rem;
+}
+.summary-failed,
+.summary-obsolete-snapshots {
+  color: #d8000c;
+  border-left: 0.4rem solid #d8000c;
+  padding-left: 0.5rem;
+}
+.summary-pending {
+  color: #9f6000;
+  border-left: 0.4rem solid #9f6000;
+  padding-left: 0.5rem;
+}
+.summary-empty {
+  color: #999;
+  border-left: 0.4rem solid #999;
+}
+
+.test-result {
+  padding: 1rem;
+  margin-bottom: 0.25rem;
+}
+.test-result:last-child {
+  border: 0;
+}
+.test-result.passed {
+  background-color: #dff2bf;
+  color: #4f8a10;
+}
+.test-result.failed {
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.test-result.pending {
+  background-color: #ffdf61;
+  color: #9f6000;
+}
+
+.test-info {
+  display: flex;
+  justify-content: space-between;
+}
+.test-suitename {
+  width: 20%;
+  text-align: left;
+  font-weight: bold;
+  word-break: break-word;
+}
+.test-title {
+  width: 40%;
+  text-align: left;
+  font-style: italic;
+}
+.test-status {
+  width: 20%;
+  text-align: right;
+}
+.test-duration {
+  width: 10%;
+  text-align: right;
+  font-size: 0.75rem;
+}
+
+.failureMessages {
+  padding: 0 1rem;
+  margin-top: 1rem;
+  border-top: 1px dashed #d8000c;
+}
+.failureMessages.suiteFailure {
+  border-top: none;
+}
+.failureMsg {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.suite-container {
+  margin-bottom: 2rem;
+}
+.suite-info {
+  padding: 1rem;
+  background-color: #eee;
+  color: #777;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.suite-info .suite-path {
+  word-break: break-all;
+  flex-grow: 1;
+  font-family: monospace;
+  font-size: 1rem;
+}
+.suite-info .suite-time {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.75rem;
+}
+.suite-info .suite-time.warn {
+  background-color: #d8000c;
+  color: #fff;
+}
+
+/* CONSOLE LOGS */
+.suite-consolelog {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #efefef;
+}
+.suite-consolelog-header {
+  font-weight: bold;
+}
+.suite-consolelog-item {
+  padding: 0.5rem;
+}
+.suite-consolelog-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-consolelog-item-origin {
+  color: #777;
+  font-weight: bold;
+}
+.suite-consolelog-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* OBSOLETE SNAPSHOTS */
+.suite-obsolete-snapshots {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.suite-obsolete-snapshots-header {
+  font-weight: bold;
+}
+.suite-obsolete-snapshots-item {
+  padding: 0.5rem;
+}
+.suite-obsolete-snapshots-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-obsolete-snapshots-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+</style></head><body><div id="jesthtml-content"><header><h1 id="title">Test Report</h1></header><div id="metadata-container"><div id="timestamp">Started: 2024-12-17 15:25:16</div><div id="summary"><div id="suite-summary"><div class="summary-total">Suites (13)</div><div class="summary-passed">13 passed</div><div class="summary-failed summary-empty">0 failed</div><div class="summary-pending summary-empty">0 pending</div></div><div id="test-summary"><div class="summary-total">Tests (65)</div><div class="summary-passed">65 passed</div><div class="summary-failed summary-empty">0 failed</div><div class="summary-pending summary-empty">0 pending</div></div></div></div><div id="suite-1" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\01_gettingStarted.specs.js</div><div class="suite-time">0.133s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">01_Example.js</div><div class="test-title">should not contain console.log</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">01_Example.js</div><div class="test-title">should return hello world</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div><div class="suite-consolelog"><div class="suite-consolelog-header">Console Log</div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at Object.log (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\exercices\01_gettingStarted.js:11:9)
+    at Runtime._execModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1377:24)
+    at Runtime._loadModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:989:12)
+    at Runtime.requireModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:849:12)
+    at Runtime.requireModuleOrMock (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1009:21)
+    at Object.require (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\01_gettingStarted.specs.js:3:17)
+    at Runtime._execModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1377:24)
+    at Runtime._loadModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:989:12)
+    at Runtime.requireModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:849:12)
+    at jestAdapter (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:77:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runTestInternal (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">hello world</pre></div></div></div><div id="suite-2" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\02_ternaire.specs.js</div><div class="suite-time">1.441s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">02_Ternaire</div><div class="test-title">Should handle equality</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">02_Ternaire</div><div class="test-title">Should not contain if</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">02_Ternaire</div><div class="test-title">Should return a</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">02_Ternaire</div><div class="test-title">Should return b</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-3" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\03_ternaireChain.specs.js</div><div class="suite-time">1.449s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">03_Ternaire</div><div class="test-title">Should handle equality</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">03_Ternaire</div><div class="test-title">Should not contain if</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">03_Ternaire</div><div class="test-title">Should return a</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">03_Ternaire</div><div class="test-title">Should return b</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-4" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\04_arrow.specs.js</div><div class="suite-time">1.541s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">04_arrow</div><div class="test-title">arrow 1 - Should not contain function</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">04_arrow</div><div class="test-title">arrow1 - Should return a+1</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">04_arrow</div><div class="test-title">arrow2 - Should not contain function</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">04_arrow</div><div class="test-title">arrow2 - Should not contain return</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">04_arrow</div><div class="test-title">arrow2 - Should return a+1</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-5" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\05_arrayOperations.specs.js</div><div class="suite-time">1.503s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">filterNameStartByA</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">findUserById</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">multiplyByTwo</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">sum</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">sum</div><div class="test-title">should return 0 if the input array is empty</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">filterNameStartByA</div><div class="test-title">should return an array with all names starting by A</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">multiplyByTwo</div><div class="test-title">should return an array with all values multiplied by 2</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">filterNameStartByA</div><div class="test-title">should return an empty array if the input array is empty</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">multiplyByTwo</div><div class="test-title">should return an empty array if the input array is empty</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">sum</div><div class="test-title">should return the sum of all values</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">findUserById</div><div class="test-title">should return the user with the given id</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-6" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\06_composition.specs.js</div><div class="suite-time">1.518s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">concat</div><div class="test-title">should concat two arrays</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">merge</div><div class="test-title">should merge two objects</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">concat</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">merge</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">push</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">setName</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">push</div><div class="test-title">should push an element to an array</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">setName</div><div class="test-title">should set the name property of an object</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-7" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\07_destructuration.specs.js</div><div class="suite-time">1.505s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">extractFirstTwo</div><div class="test-title">should extract the first two elements of an array</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">extractName</div><div class="test-title">should extract the name from an object</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">extractRest</div><div class="test-title">should extract the rest of an array</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">extractFirstTwo</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">extractName</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">extractRest</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">removePassword</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">removePassword</div><div class="test-title">should remove the password from an object</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-8" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\08_chainingOperator.specs.js</div><div class="suite-time">1.489s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">getGroupName</div><div class="test-title">should not contain if pattern</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getGroupName</div><div class="test-title">should not contain ternary pattern</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getGroupName</div><div class="test-title">should return the group name</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">getGroupName</div><div class="test-title">should return undefined if the user has no group</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-9" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\09_strings.specs.js</div><div class="suite-time">0.119s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">concat</div><div class="test-title">should concat the first and last name</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">concat</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-10" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\10_promise.specs.js</div><div class="suite-time">3.492s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">sleep</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">sleep</div><div class="test-title">should wait 2 seconds</div><div class="test-status">passed</div><div class="test-duration">2.017s</div></div></div></div></div><div id="suite-11" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\11_async.specs.js</div><div class="suite-time warn">6.081s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">usingAwait</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">usingThen</div><div class="test-title">should not contain banned keywords</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">usingAwait</div><div class="test-title">should return a Promise</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">apiResponse</div><div class="test-title">should return the body of the response</div><div class="test-status">passed</div><div class="test-duration">0.152s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">usingAwait</div><div class="test-title">should wait 2 seconds</div><div class="test-status">passed</div><div class="test-duration">2.205s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">usingThen</div><div class="test-title">should wait 2 seconds</div><div class="test-status">passed</div><div class="test-duration">2.215s</div></div></div></div><div class="suite-consolelog"><div class="suite-consolelog-header">Console Log</div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at Object.log (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\11_async.specs.js:42:17)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</pre><pre class="suite-consolelog-item-message">{ userId: 1, id: 1, title: 'delectus aut autem', completed: false }</pre></div></div></div><div id="suite-12" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\12_parallel.specs.js</div><div class="suite-time">1.875s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">parallel</div><div class="test-title">should return array of results</div><div class="test-status">passed</div><div class="test-duration">0.218s</div></div></div></div></div><div id="suite-13" class="suite-container"><div class="suite-info"><div class="suite-path">D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\13_bonus.specs.js</div><div class="suite-time">1.537s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">countWords</div><div class="test-title">devrait compter la fréquence des mots correctement</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">countWords</div><div class="test-title">devrait gérer des cas où la capitalisation varie</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">countWords</div><div class="test-title">devrait gérer des phrases avec des signes de ponctuation</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">sortObjectByValue</div><div class="test-title">devrait gérer un objet vide</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">countWords</div><div class="test-title">devrait gérer une phrase vide</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">sortObjectByValue</div><div class="test-title">devrait trier les propriétés avec des valeurs identiques en fonction de leurs clés</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">sortObjectByValue</div><div class="test-title">devrait trier les propriétés avec différentes types de valeurs</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">sortObjectByValue</div><div class="test-title">devrait trier les propriétés de l’objet en fonction de leurs valeurs, en ordre croissant</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div><div class="suite-consolelog"><div class="suite-consolelog-header">Console Log</div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at Object.log (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\exercices\13_bonus.js:75:9)
+    at Runtime._execModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1377:24)
+    at Runtime._loadModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:989:12)
+    at Runtime.requireModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:849:12)
+    at Runtime.requireModuleOrMock (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1009:21)
+    at Object.require (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\13_bonus.specs.js:2:41)
+    at Runtime._execModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1377:24)
+    at Runtime._loadModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:989:12)
+    at Runtime.requireModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:849:12)
+    at jestAdapter (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:77:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runTestInternal (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">{ la: 2, pomme: 1, est: 2, rouge: 1, et: 1, banane: 1, jaune: 1 }</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at Object.log (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\exercices\13_bonus.js:76:9)
+    at Runtime._execModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1377:24)
+    at Runtime._loadModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:989:12)
+    at Runtime.requireModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:849:12)
+    at Runtime.requireModuleOrMock (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1009:21)
+    at Object.require (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\13_bonus.specs.js:2:41)
+    at Runtime._execModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1377:24)
+    at Runtime._loadModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:989:12)
+    at Runtime.requireModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:849:12)
+    at jestAdapter (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:77:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runTestInternal (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">{}</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at Object.log (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\exercices\13_bonus.js:77:9)
+    at Runtime._execModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1377:24)
+    at Runtime._loadModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:989:12)
+    at Runtime.requireModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:849:12)
+    at Runtime.requireModuleOrMock (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1009:21)
+    at Object.require (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\13_bonus.specs.js:2:41)
+    at Runtime._execModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1377:24)
+    at Runtime._loadModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:989:12)
+    at Runtime.requireModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:849:12)
+    at jestAdapter (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:77:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runTestInternal (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">{ la: 1, pomme: 1, est: 1, La: 1, Pomme: 1 }</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at Object.log (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\exercices\13_bonus.js:78:9)
+    at Runtime._execModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1377:24)
+    at Runtime._loadModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:989:12)
+    at Runtime.requireModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:849:12)
+    at Runtime.requireModuleOrMock (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1009:21)
+    at Object.require (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\__tests__\13_bonus.specs.js:2:41)
+    at Runtime._execModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:1377:24)
+    at Runtime._loadModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:989:12)
+    at Runtime.requireModule (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runtime\build\index.js:849:12)
+    at jestAdapter (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:77:13)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at runTestInternal (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (D:\dev\CDA JAVA\22 - Node.js\tp-demo\mouli_es6\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">{ La: 1, 'pomme,': 1, la: 1, 'pomme!': 1 }</pre></div></div></div></div></body></html>

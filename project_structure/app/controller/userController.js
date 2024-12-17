@@ -26,8 +26,6 @@ controller.findAll = (req, res) => {
     const startIndex = (page - 1) * limit;
     const endIndex = startIndex + limit;
 
-    const paginatedUsers = users.slice(startIndex, endIndex);
-
     let totalPages = users.length / limit;
     // si totalPages est un nombre décimal
     if (totalPages % 1 !== 0) {
@@ -43,7 +41,7 @@ controller.findAll = (req, res) => {
             current: `http://localhost:3000/users?page=${page}&limit=${limit}`,
             next: `http://localhost:3000/users?page=${page+1}&limit=${limit}`
         },
-        data: paginatedUsers
+        data: users.slice(startIndex, endIndex)
     };
 
     res.json(result);
