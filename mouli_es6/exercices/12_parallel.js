@@ -22,6 +22,9 @@ const urls = [
 ]
 
 const parallel = async () => {
+    // l'intérêt de Promise.all() est de lancer toutes les requêtes asynchrones en parallèle.
+    // Améliore les performances puisqu'on ne somme plus le temps de chaque réponse à arriver,
+    // le temps de réception sera celui que prend la plus longue promesse.
     return await Promise.all(urls.map((url) => apiResponse(url)));
 }
 

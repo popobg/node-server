@@ -11,7 +11,11 @@ const {sleep} = require("../exercices/10_promise");
  *    - ne pas utiliser async await
  *
  */
+
+// équivalent plus verbeux de :
+// (callback) => sleep().then(() => callback())
 const usingThen = (callback) => {
+    // on trouve parfois .catch() après .then() au cas où une erreur est levée
     sleep().then(() => {
         callback();
     })
