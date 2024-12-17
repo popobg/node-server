@@ -4,8 +4,6 @@ const express = require("express");
 // qui écoute de nouvelles requêtes ==> le serveur tourne en continu
 const app = express();
 
-// Permet de recevoir du json dans les méthodes post/put...
-// app.use(express.json);
 // on peut se connecter en allant sur http://localhost:3000/
 app.listen(3000, () => {
     console.log("Server running on port 3000");
@@ -22,6 +20,9 @@ app.get('/users/:name', (req, res) => {
 });
 
 app.get('/product/:category/:id', (req, res) => {
+    // récupération des variables par destructuration :
+    // const { category, id } = req.params;
+
     res.send(`Produit d'ID ${req.params.id} dans la catégorie ${req.params.category}.`);
 });
 
@@ -32,6 +33,16 @@ app.get('/search', (req, res) => {
     }
     else {
         res.send(`Vous avez recherché : ${req.query.search}.`);
+    }
+});
+
+// query + paramètre url
+app.get('/profile/:username', (req, res) => {
+    if(req.query.age === undefined) {
+        res.send(`Profil de ${req.params.username}, âge non spécifié.`);
+    }
+    else {
+        res.send(`Profil de ${req.params.username}, âge : ${req.query.age}.`);
     }
 });
 
@@ -50,25 +61,6 @@ app.get('/api/info', (req, res) => {
     res.json(info);
 });
 
-// query + paramètre url
-app.get('/profile/:username', (req, res) => {
-    if(req.query.age === undefined) {
-        res.send(`Profil de ${req.params.username}, âge non spécifié.`);
-    }
-    else {
-        res.send(`Profil de ${req.params.username}, âge : ${req.query.age}.`);
-    }
-});
-
-app.get('/error', (req, res) => {
-    if(Math.random() > 0.5) {
-        res.status(200).json({message : "ok"});
-    }
-    else {
-        res.status(500).json({error: "Server error"});
-    }
-});
-
 app.get('/api/users', (req, res) => {
     const users = [
         {name: 'Jules', age: 35},
@@ -84,22 +76,23 @@ app.get('/api/users', (req, res) => {
         {name: 'Georgette', age: 2}
     ];
 
-
     if(req.query.name !== undefined) {
-        const selectedUsers = users.filter(u => u.name === req.query.name);
-        if (selectedUsers[0].length > 0) {
+        const user = users.find(u => u.name.toLowerCase() === req.query.name.toLowerCase());
+
+        if (user !== undefined) {
             res.send(selectedUsers);
             return;
         }
     }
 
-    res.send(error);
+    res.status(404).json({error: "Utilisateur non trouvé"});
 });
 
-// POST = ajouter des données
-
-// PUT/PATH = modifier des données
-// PUT = modifier seulement quelques champs (peut jouer le rôle d'un post si l'objet n'existe pas mais rare)
-// PATCH = modifier tous les champs d'un objet
-
-// DELETE = supprimer des données
+app.get('/error', (req, res) => {
+    if(Math.random() > 0.5) {
+        res.status(200).json({message : "ok"});
+    }
+    else {
+        res.status(500).json({error: "Server error"});
+    }
+});
