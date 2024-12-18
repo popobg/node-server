@@ -3,10 +3,43 @@ const users = require("../model/User");
 const controller = {};
 
 // GET ALL
-controller.findAll = (req, res) => {
-    users.find({})
-    .then((users) => res.status(200).json(users))
-    .catch(() => res.status(400).json("No user found"));
+controller.findAll = async (req, res) => {
+    let page = req.query.page;
+    let limit = req.query.limit;
+
+    // default = 1
+    page = parseInt(page) || 1;
+    // default = 5
+    limit = parseInt(limit) || 5;
+
+    if (page <= 0) {
+        return res.status(400).json({error: "The page must be a positive integer."});
+    }
+
+    if (limit <= 0) {
+        return res.status(400).json({error: "The limit must be a positive integer."});
+    }
+
+    const userCount = await users.countDocuments();
+    let totalPages = userCount / limit;
+
+    if (totalPages % 1 !== 0) {
+        totalPages = Math.floor(totalPages) + 1;
+    }
+
+    const requestedUsers = await users.find().limit(limit).skip((page - 1) * limit);
+
+    return res.status(200).json({
+        totalPages: totalPages,
+        currentPage : page,
+        limit: limit,
+        links: {
+            previous: `http://localhost:3000/users?page=${page-1}&limit=${limit}`,
+            current: `http://localhost:3000/users?page=${page}&limit=${limit}`,
+            next: `http://localhost:3000/users?page=${page+1}&limit=${limit}`
+        },
+        data: requestedUsers
+    });
 };
 
 // GET BY NAME
@@ -28,20 +61,15 @@ controller.findById = (req, res) => {
 
 // POST = ajouter des données
 controller.add = (req, res) => {
-    const { name, age } = req.body;
-
-    users.create({name : name, age : age})
+    users.create(req.body)
     .then((user) => res.status(201).json({user, message : "User created successfully"}))
-    .catch(() => res.status(400).json({error : "Unable to update user"}));
+    .catch((err) => res.status(500).json({message : "Unable to update user", error : err}));
 };
 
 // PUT/PATCH = modifier des données
 controller.update = (req, res) => {
-    const { name, age } = req.body;
-    const id = req.params.id;
-
-    users.findByIdAndUpdate(id, {name : name, age : age})
-    .then(() => res.status(200).json({ message: "User updated successfully." }))
+    users.findByIdAndUpdate(req.params.id, req.body)
+    .then(() => res.status(200).json({message: "User updated successfully."}))
     .catch(() => res.status(400).json({error : "Unable to update user"}));
 };
 

@@ -37,7 +37,7 @@ controller.findAll = (req, res) => {
 
         res.status(200).json({
         totalPages: totalPages,
-        CurrentPage : page,
+        currentPage : page,
         limit: limit,
         links: {
             previous: `http://localhost:3000/users?page=${page-1}&limit=${limit}`,
