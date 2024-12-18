@@ -29,14 +29,9 @@ controller.findAll = (req, res) => {
     .then(async (data) =>  {
         // Count all the users in the db
         const userCount = await users.count();
-        let totalPages = userCount / limit;
-
-        if (totalPages % 1 !== 0) {
-            totalPages = Math.floor(totalPages) + 1;
-        }
 
         res.status(200).json({
-        totalPages: totalPages,
+        totalPages: Math.ceil(userCount / limit),
         currentPage : page,
         limit: limit,
         links: {

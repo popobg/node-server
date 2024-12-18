@@ -1,7 +1,7 @@
 {
-  "name": "intro",
+  "name": "crud_sql",
   "version": "1.0.0",
-  "description": "tp demo node.js",
+  "description": "tp demo node.js: crud sqlite db",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

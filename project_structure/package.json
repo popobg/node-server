@@ -1,7 +1,7 @@
 {
-  "name": "intro",
+  "name": "project_structure",
   "version": "1.0.0",
-  "description": "tp demo node.js",
+  "description": "tp demo node.js: typical project structure for web api back",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
