@@ -11,9 +11,10 @@ controller.findAll = (req, res) => {
 
 // GET BY NAME
 controller.findByName = (req, res) => {
-    const queryName = req.query.name.toLowerCase();
+    const queryName = req.query.name;
 
-    users.find({ name : queryName })
+    // Insensible à la casse
+    users.find({ name : { $regex: new RegExp(queryName, "i") } })
     .then((users) => res.status(200).send(users))
     .catch(() => res.status(404).json({error : "No user found by that name"}));
 };
@@ -37,7 +38,7 @@ controller.add = (req, res) => {
 // PUT/PATCH = modifier des données
 controller.update = (req, res) => {
     const { name, age } = req.body;
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
 
     users.findByIdAndUpdate(id, {name : name, age : age})
     .then(() => res.status(200).json({ message: "User updated successfully." }))

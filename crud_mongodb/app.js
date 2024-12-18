@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const userRouter = require("./app/router/userRouter");
 
 const app = express();
+app.use(express.json());
 app.use(userRouter);
 
 const PORT = 3000;

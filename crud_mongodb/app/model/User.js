@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-// No id in mongoDB schema: it automatically create an _id (type UIid)
-// It creates an _v = 0 --> multiple schema version
+// Pas d'id dans le schéma MongoDB : un _id de type UIid est automatiquement créé
+// Un _v = 0 est aussi créé, utile en cas de multi-version
 const schema = mongoose.Schema({
     name : String,
     age : Number

@@ -19,4 +19,4 @@ const ageIsValid = (req, res, next) => {
     next();
 }
 
-module.exports = {nameIsValid, ageIsValid, myMiddleware};
+module.exports = {nameIsValid, ageIsValid};

@@ -19,17 +19,4 @@ const ageIsValid = (req, res, next) => {
     next();
 }
 
-
-// test middleware
-const myMiddleware = (req, res, next) => {
-    console.log("In middleware");
-
-    if (Math.random() > 0.5) {
-        next();
-        return;
-    }
-
-    return res.send("Blocked");
-};
-
-module.exports = {nameIsValid, ageIsValid, myMiddleware};
+module.exports = {nameIsValid, ageIsValid};
