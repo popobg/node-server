@@ -1,4 +1,4 @@
-const db = require("../config/databases");
+const db = require("../../config/databases");
 const sequelize = require("sequelize");     // nécessaire pour définir les types
 
 // sequelize.FLOAT pour un décimal

@@ -1,16 +1,21 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const userRouter = require("./app/router/userRouter");
-const app = express();
 
-app.use(express.json());
+const app = express();
 app.use(userRouter);
 
-// Start the server
 const PORT = 3000;
 // http://localhost:3000/
 app.listen(PORT, () => {
     console.log(`App is running on port ${PORT}`);
 });
+
+// "mongodb://127.0.0.1:27017/node-users" pour se connecter sur une db en localhost
+// (visualisable avec MongoDB Compass par exemple)
+mongoose.connect("mongodb+srv://admin:root@cluster0.v4kii.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+.then(() => console.log("Connected"))
+.catch((err) => console.log({message: "Unable to connect", err}));
 
 // global middleware: 404 route not found
 app.use((req, res) =>{

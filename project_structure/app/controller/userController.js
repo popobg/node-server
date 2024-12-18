@@ -34,7 +34,7 @@ controller.findAll = (req, res) => {
 
     const result = {
         totalPages: totalPages,
-        currentPAge : page,
+        currentPage : page,
         limit: limit,
         links: {
             previous: `http://localhost:3000/users?page=${page-1}&limit=${limit}`,
