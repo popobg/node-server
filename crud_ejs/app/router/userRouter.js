@@ -22,7 +22,7 @@ router.get("/users/update/:id", controller.getUpdatePage);
 router.post("/users/update/:id", [middlewares.nameIsValid, middlewares.ageIsValid], controller.update);
 
 // route d'action supprimer
-// router.delete("/users/:id", controller.delete);
+// router.get("/users/delete/:id", controller.delete);
 router.delete("/users/delete/:id", controller.delete);
 
 module.exports = router;

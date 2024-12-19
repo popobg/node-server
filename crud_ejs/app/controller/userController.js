@@ -7,40 +7,21 @@ const controller = {};
 controller.findAll = async (req, res) => {
     try {
         const allUsers = await users.findAll();
-        res.render("../views/index", {allUsers});
+        res.render("index", {allUsers});
     }
     catch (error) {
-        res.sender("../views/error/error", {message : error.message});
+        res.sender("error/error", {message : error.message});
     }
 };
 
-// GET BY NAME
-// controller.findByName = async (req, res) => {
-//     const queryName = req.query.name;
-
-//     // Si on n'en veut qu'un, on fait "findOne" et il prendra le premier trouvé
-//     const requestedUsers = await users.findAll({
-//         where: {
-//           name: {
-//             // insensible à la casse + match une portion du nom
-//             [Op.like]: `%${queryName}%`
-//           },
-//         },
-//       });
-
-//     console.log(requestedUsers);
-
-//     res.send(requestedUsers);
-// };
-
 controller.findById = async (req, res) => {
     const user = await users.findByPk(parseInt(req.params.id));
-    res.render("../views/user/details", {user});
+    res.render("user/details", {user});
 };
 
 // CREATE
 controller.getCreatePage = (req, res) => {
-    res.render("../views/user/create");
+    res.render("user/create");
 }
 
 controller.add = async (req, res) => {
@@ -56,14 +37,14 @@ controller.add = async (req, res) => {
         res.redirect("/users");
     }
     else {
-        res.render("../views/error/error", { message: "Failed to create new user" });
+        res.render("error/error", { message: "Failed to create new user" });
     }
 };
 
 // UPDATE
 controller.getUpdatePage = async (req, res) => {
     const user = await users.findByPk(parseInt(req.params.id));
-    res.render("../views/user/update", {user});
+    res.render("user/update", {user});
 }
 
 controller.update = async (req, res) => {
@@ -79,25 +60,22 @@ controller.update = async (req, res) => {
         res.redirect(`/users/${id}`);
     }
     else {
-        res.render("../views/error/error", { message: "Failed to update user." });
+        res.render("error/error", { message: "Failed to update user." });
     }
 };
 
 // DELETE
 controller.delete = async (req, res) => {
-    console.log(req.params.id);
     const user = await users.destroy({
         where: { id: parseInt(req.params.id) }
     });
-    console.log(user)
 
     if (user) {
         console.log("user deleted");
-        return res.status(200);
-        // return res.status(200);
+        return res.status(200).send();
     }
     else {
-        return res.status(400);
+        return res.status(400).send();
     }
 };
 

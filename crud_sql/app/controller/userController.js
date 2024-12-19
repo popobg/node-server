@@ -11,7 +11,7 @@ controller.findAll = (req, res) => {
     // default = 1
     page = parseInt(page) || 1;
     // default = 5
-    limit = parseInt(limit) || 5;
+    limit = parseInt(limit) || 15;
 
     if (page <= 0) {
         return res.status(400).json({error: "The page must be a positive integer."});
