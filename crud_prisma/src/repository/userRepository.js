@@ -4,10 +4,9 @@ const prisma = new prismaClient.PrismaClient();
 const repository = {};
 
 repository.findAllUsers = async (page, limit) => {
-    // index de début
-    const skip = (page -1) * limit;
     const users = await prisma.user.findMany({
-        skip,
+        // index de début
+        skip: (page -1) * limit,
         take: limit,
         orderBy : {
             id: 'asc'
