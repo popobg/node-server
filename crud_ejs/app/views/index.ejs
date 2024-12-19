@@ -48,9 +48,9 @@
                 fetch(`/users/delete/${userId}`, {
                     method: 'DELETE',
                 })
-                // problème : ni then ni catch atteint après la réalisation du fetch
                 .then(async () => {
                     alert("User deleted successfully");
+                    // n'a pas les bons utilisateurs
                     location.reload();
                 })
                 .catch(() => {
