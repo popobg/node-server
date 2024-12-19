@@ -1,4 +1,4 @@
-### Initialisation du projet
+### Initialisation projet Node.js
 #### -y accepte toutes les propositions par défaut (moidifiables dans le package.json)
 npm init -y
 

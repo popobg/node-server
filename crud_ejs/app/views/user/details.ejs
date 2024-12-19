@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iinformations utilisateur</title>
+</head>
+<body>
+    <% if (user) { %>
+        <h2>Vos informations :</h2>
+        <p>Nom : <%= user.name %></p>
+        <p>Âge : <%= user.age %></p>
+        <a href = "/users/update/<%= user.id %>" class="button">Modifier</a>
+    <% } else { %>
+        <p>Pas d'utilisateur trouvé à cet ID.</p>
+    <% } %>
+    <a href = "/users" class="button">Retour à la liste des utilisateurs</a>
+</body>
+</html>
