@@ -7,8 +7,8 @@ const router = express.Router();
 router.get("/users", controller.findAll);
 router.get("/users/search", controller.findByName);
 router.get("/users/:id", controller.findById);
-router.post("/users", [middlewares.nameIsValid, middlewares.ageIsValid], controller.add);
-router.put("/users/:id", [middlewares.nameIsValid, middlewares.ageIsValid], controller.update);
-router.delete("/users/:id", controller.delete);
+router.post("/users/create", [middlewares.nameIsValid, middlewares.ageIsValid], controller.add);
+router.put("/users/update/:id", [middlewares.nameIsValid, middlewares.ageIsValid], controller.update);
+router.delete("/users/delete/:id", controller.delete);
 
 module.exports = router;
