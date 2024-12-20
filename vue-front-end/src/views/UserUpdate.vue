@@ -17,7 +17,7 @@ export default {
           age: this.age
         };
         const response = await axios.put(`http://localhost:3000/users/update/${id}`, newUser);
-        this.message = 'Utilisateur créé avec succès !';
+        this.message = 'Informations modifiées avec succès !';
         this.name = '';
         this.age = '';
         console.log('Created user:', response.data.data);
@@ -33,7 +33,7 @@ export default {
 <template>
   <main>
     <h1>Entrez vos informations :</h1>
-    <form @submit.prevent="createUser">
+    <form @submit.prevent="updateUser()">
       <div>
         <label for="name">Nom :</label>
         <input type="text" id="name" name="name" v-model="name" required />
